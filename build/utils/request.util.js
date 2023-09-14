@@ -71,6 +71,7 @@ var sendAcknowledgement = function (res, ack) {
         message: {
             ack: {
                 status: ack,
+                message: 'Acknowledgement from BPP',
             },
         },
     });

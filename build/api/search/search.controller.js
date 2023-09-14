@@ -55,7 +55,6 @@ function searchController(req, res) {
                     searchDto.context.action = constants_1.SEARCH_ACTION;
                     searchDto.context.bpp_id = constants_1.BPP_ID;
                     searchDto.context.bpp_uri = constants_1.BPP_URI;
-                    (0, request_util_1.sendAcknowledgement)(res, 'ACK');
                     console.log('Making request to ', "".concat(process.env.DELTA_PROVIDER_URI, "/search"));
                     return [4 /*yield*/, axios_1.default.post("".concat(process.env.DELTA_PROVIDER_URI, "/search"), searchDto, {
                             headers: {
@@ -83,7 +82,10 @@ function searchController(req, res) {
                     };
                     console.log('calling request forwarder from bpp', "".concat(searchDto.context.bap_uri, "on_search"));
                     return [4 /*yield*/, axios_1.default.post("".concat(searchDto.context.bap_uri, "on_search"), searchResponse, requestOptions)];
-                case 2: return [2 /*return*/, _a.sent()];
+                case 2:
+                    _a.sent();
+                    (0, request_util_1.sendAcknowledgement)(res, 'ACK');
+                    return [3 /*break*/, 4];
                 case 3:
                     err_1 = _a.sent();
                     console.log('BPP ERRRRRRRRRRR %%%%%%%%', err_1);

@@ -27,6 +27,7 @@ const sendAcknowledgement = (res: Response, ack: string) => {
     message: {
       ack: {
         status: ack,
+        message: 'Acknowledgement from BPP',
       },
     },
   });

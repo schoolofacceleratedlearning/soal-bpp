@@ -22,8 +22,6 @@ export default async function searchController(req: Request, res: Response) {
     searchDto.context.bpp_id = BPP_ID;
     searchDto.context.bpp_uri = BPP_URI;
 
-    sendAcknowledgement(res, 'ACK');
-
     console.log(
       'Making request to ',
       `${process.env.DELTA_PROVIDER_URI}/search`,
@@ -66,11 +64,13 @@ export default async function searchController(req: Request, res: Response) {
       'calling request forwarder from bpp',
       `${searchDto.context.bap_uri}on_search`,
     );
-    return await axios.post(
+    await axios.post(
       `${searchDto.context.bap_uri}on_search`,
       searchResponse,
       requestOptions,
     );
+
+    sendAcknowledgement(res, 'ACK');
   } catch (err) {
     console.log('BPP ERRRRRRRRRRR %%%%%%%%', err);
     res.status(500).json({ error: 'Internal server error!' });
