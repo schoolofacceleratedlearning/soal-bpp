@@ -3,19 +3,18 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/search": {
+  '/search': {
     /** @description This allows the BAP to discover a catalog of courses and trainings */
     post: {
       /** @description This allows the BAP to discover a catalog of courses and trainings */
       /** @description BAP searches for courses and trainings */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
-              intent?: components["schemas"]["Intent"];
+              intent?: components['schemas']['Intent'];
             };
           };
         };
@@ -24,30 +23,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
                 catalog?: null;
-                $ref?: components["schemas"]["Catalog"];
+                $ref?: components['schemas']['Catalog'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/select": {
+  '/select': {
     /** @description Select items from the catalog and build your order */
     post: {
       /** @description Select items from the catalog and build your order */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
           };
         };
@@ -56,28 +55,28 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/init": {
+  '/init': {
     /** @description Initialize an order by providing billing and/or shipping details */
     post: {
       /** @description Initialize an order by providing billing and/or shipping details */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
           };
         };
@@ -86,28 +85,28 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/confirm": {
+  '/confirm': {
     /** @description Confirm the order before payment */
     post: {
       /** @description Confirm the order before payment */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
           };
         };
@@ -116,30 +115,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/cancel": {
+  '/cancel': {
     /** @description Cancel an order */
     post: {
       /** @description Cancel an order */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
-              order_id: components["schemas"]["Order"]["id"];
-              cancellation_reason_id?: components["schemas"]["Option"]["id"];
-              descriptor?: components["schemas"]["Descriptor"];
+              order_id: components['schemas']['Order']['id'];
+              cancellation_reason_id?: components['schemas']['Option']['id'];
+              descriptor?: components['schemas']['Descriptor'];
             };
           };
         };
@@ -148,30 +147,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/update": {
+  '/update': {
     /** @description Remove or Change object */
     post: {
       /** @description Remove or Change object */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
               /** @description Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"``` */
               update_target: string;
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
           };
         };
@@ -180,27 +179,27 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/rating": {
+  '/rating': {
     /** @description Provide feedback on a course */
     post: {
       /** @description Provide feedback on a course */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
-            message: components["schemas"]["Rating"];
+          'application/json': {
+            context: components['schemas']['Context'];
+            message: components['schemas']['Rating'];
           };
         };
       };
@@ -208,26 +207,26 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/support": {
+  '/support': {
     /** @description Contact support */
     post: {
       /** @description Contact support */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message: {
               /** Format: phone */
               phone?: string;
@@ -243,30 +242,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_search": {
+  '/on_search': {
     /** @description Recieve */
     post: {
       /** @description Recieve */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
-              catalog: components["schemas"]["Catalog"];
+              catalog: components['schemas']['Catalog'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -274,32 +273,32 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message?: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
                 catalog?: null;
-                $ref?: components["schemas"]["Catalog"];
+                $ref?: components['schemas']['Catalog'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_select": {
+  '/on_select': {
     /** @description Send draft order object with quoted price for selected items */
     post: {
       /** @description Send draft order object with quoted price for selected items */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
-              order?: components["schemas"]["Order"];
+              order?: components['schemas']['Order'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -307,30 +306,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_init": {
+  '/on_init': {
     /** @description Send order object with payment details updated */
     post: {
       /** @description Send order object with payment details updated */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -338,30 +337,30 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_confirm": {
+  '/on_confirm': {
     /** @description Send active order object */
     post: {
       /** @description Send active order object */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -369,32 +368,32 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_cancel": {
+  '/on_cancel': {
     /** @description Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object */
     post: {
       /** @description Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
-              order_id: components["schemas"]["Order"]["id"];
-              cancellation_reason_id?: components["schemas"]["Option"]["id"];
-              descriptor?: components["schemas"]["Descriptor"];
+              order_id: components['schemas']['Order']['id'];
+              cancellation_reason_id?: components['schemas']['Option']['id'];
+              descriptor?: components['schemas']['Descriptor'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -402,32 +401,32 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_update": {
+  '/on_update': {
     /** @description Returns updated service with updated runtime object */
     post: {
       /** @description Returns updated service with updated runtime object */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
               /** @description Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"``` */
               update_target?: string;
-              order: components["schemas"]["Order"];
+              order: components['schemas']['Order'];
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -435,28 +434,28 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_rating": {
+  '/on_rating': {
     /** @description Provide feedback on a service */
     post: {
       /** @description Provide feedback on a service */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
-            message?: components["schemas"]["Rating"];
-            error?: components["schemas"]["Error"];
+          'application/json': {
+            context: components['schemas']['Context'];
+            message?: components['schemas']['Rating'];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -464,26 +463,26 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
       };
     };
   };
-  "/on_support": {
+  '/on_support': {
     /** @description Contact Support */
     post: {
       /** @description Contact Support */
       /** @description TODO */
       requestBody?: {
         content: {
-          "application/json": {
-            context: components["schemas"]["Context"];
+          'application/json': {
+            context: components['schemas']['Context'];
             message?: {
               /** Format: phone */
               phone?: string;
@@ -492,7 +491,7 @@ export interface paths {
               /** @description ID of the element for which support is needed */
               ref_id?: string;
             };
-            error?: components["schemas"]["Error"];
+            error?: components['schemas']['Error'];
           };
         };
       };
@@ -500,11 +499,11 @@ export interface paths {
         /** @description Acknowledgement of message received */
         200: {
           content: {
-            "application/json": {
+            'application/json': {
               message: {
-                ack: components["schemas"]["Ack"];
+                ack: components['schemas']['Ack'];
               };
-              error?: components["schemas"]["Error"];
+              error?: components['schemas']['Error'];
             };
           };
         };
@@ -520,17 +519,17 @@ export interface components {
     /** @description Describes the ACK response */
     Ack: {
       /**
-       * @description Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK 
+       * @description Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK
        * @enum {string}
        */
-      status: "ACK" | "NACK";
+      status: 'ACK' | 'NACK';
     };
     /** @description Describes an add-on */
     AddOn: {
       /** @description ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR */
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
-      price?: components["schemas"]["Price"];
+      descriptor?: components['schemas']['Descriptor'];
+      price?: components['schemas']['Price'];
     };
     /** @description Describes an address */
     Address: {
@@ -557,9 +556,10 @@ export interface components {
       area_code?: string;
     };
     /** @description Describes an order executor */
-    Agent: components["schemas"]["Person"] & components["schemas"]["Contact"] & {
-      rateable?: components["schemas"]["Rateable"];
-    };
+    Agent: components['schemas']['Person'] &
+      components['schemas']['Contact'] & {
+        rateable?: components['schemas']['Rateable'];
+      };
     /** @description Describes an authorization mechanism */
     Authorization: {
       /** @description Type of authorization mechanism used */
@@ -567,12 +567,12 @@ export interface components {
       /** @description Token used for authorization */
       token?: string;
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Timestamp in RFC3339 format from which token is valid
        */
       valid_from?: string;
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Timestamp in RFC3339 format until which token is valid
        */
       valid_to?: string;
@@ -583,12 +583,12 @@ export interface components {
     Billing: {
       /** @description Personal details of the customer needed for billing. */
       name?: string;
-      organization?: components["schemas"]["Organization"];
-      address?: components["schemas"]["Address"];
+      organization?: components['schemas']['Organization'];
+      address?: components['schemas']['Address'];
       /** Format: email */
       email?: string;
       phone?: string;
-      time?: components["schemas"]["Time"];
+      time?: components['schemas']['Time'];
       tax_number?: string;
       /** Format: date-time */
       created_at?: string;
@@ -598,39 +598,39 @@ export interface components {
     /** @description Describes the ACK response */
     Cancellation: {
       /** @enum {string} */
-      type?: "full" | "partial";
+      type?: 'full' | 'partial';
       ref_id?: string;
-      policies?: (components["schemas"]["Policy"])[];
+      policies?: components['schemas']['Policy'][];
       /** Format: date-time */
       time?: string;
       cancelled_by?: string;
-      reasons?: components["schemas"]["Option"];
+      reasons?: components['schemas']['Option'];
       selected_reason?: {
-        id?: components["schemas"]["Option"]["id"];
+        id?: components['schemas']['Option']['id'];
       };
-      additional_description?: components["schemas"]["Descriptor"];
+      additional_description?: components['schemas']['Descriptor'];
     };
     CancellationTerms: {
       /** Format: date-time */
       cancel_by?: string;
       refund_eligible?: boolean;
       refund_percentage?: number;
-      other_terms?: (string)[];
+      other_terms?: string[];
     };
     CargoItem: {
-      descriptor?: components["schemas"]["Descriptor"];
-      dimensions?: components["schemas"]["Dimensions"];
+      descriptor?: components['schemas']['Descriptor'];
+      dimensions?: components['schemas']['Dimensions'];
     };
     /** @description Describes a BPP catalog */
     Catalog: {
-      "bpp/descriptor"?: components["schemas"]["Descriptor"];
-      "bpp/categories"?: (components["schemas"]["Category"])[];
-      "bpp/fulfillments"?: (components["schemas"]["Fulfillment"])[];
-      "bpp/payments"?: (components["schemas"]["Payment"])[];
-      "bpp/offers"?: (components["schemas"]["Offer"])[];
-      "bpp/providers"?: (components["schemas"]["Provider"])[];
+      'bpp/descriptor'?: components['schemas']['Descriptor'];
+      'bpp/categories'?: components['schemas']['Category'][];
+      'bpp/fulfillments'?: components['schemas']['Fulfillment'][];
+      'bpp/payments'?: components['schemas']['Payment'][];
+      'bpp/offers'?: components['schemas']['Offer'][];
+      'bpp/providers'?: components['schemas']['Provider'][];
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Time after which catalog has to be refreshed
        */
       exp?: string;
@@ -639,15 +639,15 @@ export interface components {
     Category: {
       /** @description Unique id of the category */
       id?: string;
-      parent_category_id?: components["schemas"]["Category"]["id"];
-      descriptor?: components["schemas"]["Descriptor"];
-      time?: components["schemas"]["Time"];
-      tags?: components["schemas"]["Tags"];
+      parent_category_id?: components['schemas']['Category']['id'];
+      descriptor?: components['schemas']['Descriptor'];
+      time?: components['schemas']['Time'];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes a circular area on the map */
     Circle: {
-      gps: components["schemas"]["Gps"];
-      radius: components["schemas"]["Scalar"];
+      gps: components['schemas']['Gps'];
+      radius: components['schemas']['Scalar'];
     };
     /** @description Describes a city */
     City: {
@@ -657,43 +657,63 @@ export interface components {
       code?: string;
     };
     Contact: {
-      name?: components["schemas"]["Name"];
-      address?: components["schemas"]["Address"];
+      name?: components['schemas']['Name'];
+      address?: components['schemas']['Address'];
       phone?: string;
       email?: string;
       /** @description A Jcard object as per draft-ietf-jcardcal-jcard-03 specification */
       jcard?: Record<string, never>;
-      tags?: components["schemas"]["Tags"];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes a beckn message context */
     Context: {
-      domain: components["schemas"]["Domain"];
-      country: components["schemas"]["Country"]["code"];
-      city: components["schemas"]["City"]["code"];
+      domain: components['schemas']['Domain'];
+      country: components['schemas']['Country']['code'];
+      city: components['schemas']['City']['code'];
       /**
-       * @description Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol 
+       * @description Defines the Beckn API call. Any actions other than the enumerated actions are not supported by Beckn Protocol
        * @enum {string}
        */
-      action: "search" | "select" | "init" | "confirm" | "update" | "status" | "track" | "cancel" | "rating" | "support" | "on_search" | "on_select" | "on_init" | "on_confirm" | "on_update" | "on_status" | "on_track" | "on_cancel" | "on_rating" | "on_support";
+      action:
+        | 'search'
+        | 'select'
+        | 'init'
+        | 'confirm'
+        | 'update'
+        | 'status'
+        | 'track'
+        | 'cancel'
+        | 'rating'
+        | 'support'
+        | 'on_search'
+        | 'on_select'
+        | 'on_init'
+        | 'on_confirm'
+        | 'on_update'
+        | 'on_status'
+        | 'on_track'
+        | 'on_cancel'
+        | 'on_rating'
+        | 'on_support';
       /** @description Version of Beckn core API specification being used */
       core_version: string;
       /**
-       * Format: uri 
+       * Format: uri
        * @description Unique id of the BAP. By default it is the fully qualified domain name of the BAP
        */
       bap_id: string;
       /**
-       * Format: uri 
+       * Format: uri
        * @description URI of the BAP for accepting callbacks. Must have the same domain name as the bap_id
        */
       bap_uri: string;
       /**
-       * Format: uri 
+       * Format: uri
        * @description Unique id of the BPP. By default it is the fully qualified domain name of the BPP
        */
       bpp_id?: string;
       /**
-       * Format: uri 
+       * Format: uri
        * @description URI of the BPP. Must have the same domain name as the bap_id
        */
       bpp_uri?: string;
@@ -702,7 +722,7 @@ export interface components {
       /** @description This is a unique value which persists during a request / callback cycle */
       message_id: string;
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Time of request generation in RFC3339 format
        */
       timestamp: string;
@@ -744,19 +764,19 @@ export interface components {
       symbol?: string;
       short_desc?: string;
       long_desc?: string;
-      images?: (components["schemas"]["Image"])[];
+      images?: components['schemas']['Image'][];
       /** Format: uri */
       audio?: string;
       /** Format: uri */
       video?: string;
       /** Format: uri */
-      "3d_render"?: string;
+      '3d_render'?: string;
     };
     /** @description Describes the dimensions of a real-world object */
     Dimensions: {
-      length?: components["schemas"]["Scalar"];
-      breadth?: components["schemas"]["Scalar"];
-      height?: components["schemas"]["Scalar"];
+      length?: components['schemas']['Scalar'];
+      breadth?: components['schemas']['Scalar'];
+      height?: components['schemas']['Scalar'];
     };
     /** @description Describes a document which can be sent as a url */
     Document: {
@@ -771,7 +791,12 @@ export interface components {
     /** @description Describes an error object */
     Error: {
       /** @enum {string} */
-      type: "CONTEXT-ERROR" | "CORE-ERROR" | "DOMAIN-ERROR" | "POLICY-ERROR" | "JSON-SCHEMA-ERROR";
+      type:
+        | 'CONTEXT-ERROR'
+        | 'CORE-ERROR'
+        | 'DOMAIN-ERROR'
+        | 'POLICY-ERROR'
+        | 'JSON-SCHEMA-ERROR';
       /** @description Beckn specific error code. For full list of error codes, refer to docs/protocol-drafts/BECKN-RFC-005-ERROR-CODES-DRAFT-01.md of this repo */
       code: string;
       /** @description Path to json schema generating the error. Used only during json schema validation errors */
@@ -781,34 +806,34 @@ export interface components {
     };
     /** @description Feedback for a service */
     Feedback: {
-      feedback_form?: components["schemas"]["FeedbackForm"];
-      feedback_url?: components["schemas"]["FeedbackUrl"];
+      feedback_form?: components['schemas']['FeedbackForm'];
+      feedback_url?: components['schemas']['FeedbackUrl'];
     };
     /** @description Describes a feedback form that a BPP can send to get feedback from the BAP */
-    FeedbackForm: (components["schemas"]["FeedbackFormElement"])[];
+    FeedbackForm: components['schemas']['FeedbackFormElement'][];
     /** @description An element in the feedback form. It can be question or an answer to the question. */
     FeedbackFormElement: {
       id?: string;
-      parent_id?: components["schemas"]["FeedbackFormElement"]["id"];
+      parent_id?: components['schemas']['FeedbackFormElement']['id'];
       /** @description Specifies the question to which the answer options will be contained in the child FeedbackFormElements */
       question?: string;
       /** @description Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id */
       answer?: string;
       /**
-       * @description Specifies how the answer option should be rendered. 
+       * @description Specifies how the answer option should be rendered.
        * @enum {string}
        */
-      answer_type?: "radio" | "checkbox" | "text";
+      answer_type?: 'radio' | 'checkbox' | 'text';
     };
     /** @description Describes how a feedback URL will be sent by the BPP */
     FeedbackUrl: {
       /**
-       * Format: uri 
+       * Format: uri
        * @description feedback URL sent by the BPP
        */
       url?: string;
       /** @enum {string} */
-      tl_method?: "http/get" | "http/post";
+      tl_method?: 'http/get' | 'http/post';
       params?: {
         /** @description This value will be placed in the the $feedback_id url param in case of http/get and in the requestBody http/post requests */
         feedback_id: string;
@@ -821,42 +846,42 @@ export interface components {
       id?: string;
       /** @description This describes the type of fulfillment */
       type?: string;
-      provider_id?: components["schemas"]["Provider"]["id"];
-      rating?: components["schemas"]["Rating"]["value"];
-      state?: components["schemas"]["State"];
+      provider_id?: components['schemas']['Provider']['id'];
+      rating?: components['schemas']['Rating']['value'];
+      state?: components['schemas']['State'];
       /**
-       * @description Indicates whether the fulfillment allows tracking 
+       * @description Indicates whether the fulfillment allows tracking
        * @default false
        */
       tracking?: boolean;
       customer?: {
-        person?: components["schemas"]["Person"];
-        contact?: components["schemas"]["Contact"];
+        person?: components['schemas']['Person'];
+        contact?: components['schemas']['Contact'];
       };
-      agent?: components["schemas"]["Agent"];
-      person?: components["schemas"]["Person"];
-      contact?: components["schemas"]["Contact"];
-      vehicle?: components["schemas"]["Vehicle"];
+      agent?: components['schemas']['Agent'];
+      person?: components['schemas']['Person'];
+      contact?: components['schemas']['Contact'];
+      vehicle?: components['schemas']['Vehicle'];
       /** @description Details on the start of fulfillment */
       start?: {
-        location?: components["schemas"]["Location"];
-        time?: components["schemas"]["Time"];
-        instructions?: components["schemas"]["Descriptor"];
-        contact?: components["schemas"]["Contact"];
-        person?: components["schemas"]["Person"];
-        authorization?: components["schemas"]["Authorization"];
+        location?: components['schemas']['Location'];
+        time?: components['schemas']['Time'];
+        instructions?: components['schemas']['Descriptor'];
+        contact?: components['schemas']['Contact'];
+        person?: components['schemas']['Person'];
+        authorization?: components['schemas']['Authorization'];
       };
       /** @description Details on the end of fulfillment */
       end?: {
-        location?: components["schemas"]["Location"];
-        time?: components["schemas"]["Time"];
-        instructions?: components["schemas"]["Descriptor"];
-        contact?: components["schemas"]["Contact"];
-        person?: components["schemas"]["Person"];
-        authorization?: components["schemas"]["Authorization"];
+        location?: components['schemas']['Location'];
+        time?: components['schemas']['Time'];
+        instructions?: components['schemas']['Descriptor'];
+        contact?: components['schemas']['Contact'];
+        person?: components['schemas']['Person'];
+        authorization?: components['schemas']['Authorization'];
       };
-      rateable?: components["schemas"]["Rateable"];
-      tags?: components["schemas"]["Tags"];
+      rateable?: components['schemas']['Rateable'];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes a gps coordinate */
     Gps: string;
@@ -864,57 +889,57 @@ export interface components {
     Image: string;
     /** @description Intent of a user. Used for searching for services */
     Intent: {
-      descriptor?: components["schemas"]["Descriptor"];
-      provider?: components["schemas"]["Provider"];
-      fulfillment?: components["schemas"]["Fulfillment"];
-      payment?: components["schemas"]["Payment"];
-      category?: components["schemas"]["Category"];
-      offer?: components["schemas"]["Offer"];
-      item?: components["schemas"]["Item"];
-      tags?: components["schemas"]["Tags"];
+      descriptor?: components['schemas']['Descriptor'];
+      provider?: components['schemas']['Provider'];
+      fulfillment?: components['schemas']['Fulfillment'];
+      payment?: components['schemas']['Payment'];
+      category?: components['schemas']['Category'];
+      offer?: components['schemas']['Offer'];
+      item?: components['schemas']['Item'];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes count or amount of an item */
     ItemQuantity: {
       allocated?: {
         count?: number;
-        measure?: components["schemas"]["Scalar"];
+        measure?: components['schemas']['Scalar'];
       };
       available?: {
         count?: number;
-        measure?: components["schemas"]["Scalar"];
+        measure?: components['schemas']['Scalar'];
       };
       maximum?: {
         count?: number;
-        measure?: components["schemas"]["Scalar"];
+        measure?: components['schemas']['Scalar'];
       };
       minimum?: {
         count?: number;
-        measure?: components["schemas"]["Scalar"];
+        measure?: components['schemas']['Scalar'];
       };
       selected?: {
         count?: number;
-        measure?: components["schemas"]["Scalar"];
+        measure?: components['schemas']['Scalar'];
       };
     };
     /** @description Describes a product or a service offered to the end consumer by the provider. */
     Item: {
       /** @description This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product. */
       id?: string;
-      parent_item_id?: components["schemas"]["Item"]["id"];
-      descriptor?: components["schemas"]["Descriptor"];
-      price?: components["schemas"]["Price"];
-      quantity?: components["schemas"]["ItemQuantity"];
-      category_id?: components["schemas"]["Category"]["id"];
-      fulfillment_id?: components["schemas"]["Fulfillment"]["id"];
-      rating?: components["schemas"]["Rating"]["value"];
-      location_id?: components["schemas"]["Location"]["id"];
-      payment_id?: components["schemas"]["Payment"]["id"];
-      time?: components["schemas"]["Time"];
-      rateable?: components["schemas"]["Rateable"];
+      parent_item_id?: components['schemas']['Item']['id'];
+      descriptor?: components['schemas']['Descriptor'];
+      price?: components['schemas']['Price'];
+      quantity?: components['schemas']['ItemQuantity'];
+      category_id?: components['schemas']['Category']['id'];
+      fulfillment_id?: components['schemas']['Fulfillment']['id'];
+      rating?: components['schemas']['Rating']['value'];
+      location_id?: components['schemas']['Location']['id'];
+      payment_id?: components['schemas']['Payment']['id'];
+      time?: components['schemas']['Time'];
+      rateable?: components['schemas']['Rateable'];
       matched?: boolean;
       related?: boolean;
       recommended?: boolean;
-      tags?: components["schemas"]["Tags"];
+      tags?: components['schemas']['Tags'];
     };
     /** @description indicates language code. Beckn supports country codes as per ISO 639.2 standard */
     Language: {
@@ -923,35 +948,35 @@ export interface components {
     /** @description Describes the location of a runtime object. */
     Location: {
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
-      gps?: components["schemas"]["Gps"];
-      address?: components["schemas"]["Address"];
+      descriptor?: components['schemas']['Descriptor'];
+      gps?: components['schemas']['Gps'];
+      address?: components['schemas']['Address'];
       station_code?: string;
-      city?: components["schemas"]["City"];
-      country?: components["schemas"]["Country"];
-      circle?: components["schemas"]["Circle"];
+      city?: components['schemas']['City'];
+      country?: components['schemas']['Country'];
+      circle?: components['schemas']['Circle'];
       polygon?: string;
-      "3dspace"?: string;
-      time?: components["schemas"]["Time"];
+      '3dspace'?: string;
+      time?: components['schemas']['Time'];
     };
     Organization: {
-      descriptor?: components["schemas"]["Descriptor"];
-      address?: components["schemas"]["Address"];
-      contact?: components["schemas"]["Contact"];
+      descriptor?: components['schemas']['Descriptor'];
+      address?: components['schemas']['Address'];
+      contact?: components['schemas']['Contact'];
     };
     /** @description Describes the name of a person */
     Name: string;
     /** @description Describes an offer */
     Offer: {
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
-      location_ids?: (components["schemas"]["Location"]["id"])[];
-      category_ids?: (components["schemas"]["Category"]["id"])[];
-      item_ids?: (components["schemas"]["Item"]["id"])[];
-      time?: components["schemas"]["Time"];
+      descriptor?: components['schemas']['Descriptor'];
+      location_ids?: components['schemas']['Location']['id'][];
+      category_ids?: components['schemas']['Category']['id'][];
+      item_ids?: components['schemas']['Item']['id'][];
+      time?: components['schemas']['Time'];
     };
     /** @description Describes the agent of a service */
-    Operator: components["schemas"]["Person"] & {
+    Operator: components['schemas']['Person'] & {
       experience?: {
         label?: string;
         value?: string;
@@ -961,24 +986,24 @@ export interface components {
     /** @description Describes a selectable option */
     Option: {
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
+      descriptor?: components['schemas']['Descriptor'];
     };
     /** @description Describes the details of an order */
     Order: {
       /** @description Hash of order object without id */
       id?: string;
       state?: string;
-      provider?: components["schemas"]["Provider"];
-      items?: (components["schemas"]["Item"])[];
-      add_ons?: (components["schemas"]["AddOn"])[];
-      offers?: (components["schemas"]["Offer"])[];
-      documents?: (components["schemas"]["Document"])[];
-      billing?: components["schemas"]["Billing"];
-      fulfillments?: (components["schemas"]["Fulfillment"])[];
-      return_terms?: components["schemas"]["ReturnTerms"];
-      update_terms?: components["schemas"]["UpdateTerms"];
-      quote?: components["schemas"]["Quotation"];
-      payment?: components["schemas"]["Payment"];
+      provider?: components['schemas']['Provider'];
+      items?: components['schemas']['Item'][];
+      add_ons?: components['schemas']['AddOn'][];
+      offers?: components['schemas']['Offer'][];
+      documents?: components['schemas']['Document'][];
+      billing?: components['schemas']['Billing'];
+      fulfillments?: components['schemas']['Fulfillment'][];
+      return_terms?: components['schemas']['ReturnTerms'];
+      update_terms?: components['schemas']['UpdateTerms'];
+      quote?: components['schemas']['Quotation'];
+      payment?: components['schemas']['Payment'];
       /** Format: date-time */
       created_at?: string;
       /** Format: date-time */
@@ -1003,7 +1028,7 @@ export interface components {
     Payment: {
       id?: string;
       /**
-       * Format: uri 
+       * Format: uri
        * @description A payment uri to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
        */
       uri?: string;
@@ -1011,82 +1036,86 @@ export interface components {
         /** @description This value will be placed in the the $transaction_id url param in case of http/get and in the requestBody http/post requests */
         transaction_id?: string;
         transaction_status?: string;
-        amount?: components["schemas"]["Price"]["value"];
-        currency?: components["schemas"]["Price"]["currency"];
+        amount?: components['schemas']['Price']['value'];
+        currency?: components['schemas']['Price']['currency'];
         bank_code?: string;
         bank_account_number?: string;
         virtual_payment_address?: string;
       };
       /** @enum {string} */
-      type?: "ON-ORDER" | "PRE-FULFILLMENT" | "ON-FULFILLMENT" | "POST-FULFILLMENT";
+      type?:
+        | 'ON-ORDER'
+        | 'PRE-FULFILLMENT'
+        | 'ON-FULFILLMENT'
+        | 'POST-FULFILLMENT';
       /** @enum {string} */
-      status?: "PAID" | "NOT-PAID";
-      time?: components["schemas"]["Time"];
+      status?: 'PAID' | 'NOT-PAID';
+      time?: components['schemas']['Time'];
     };
     /** @description Describes a person */
     Person: {
       /** @description Describes the identity of the person */
       id?: string;
-      name?: components["schemas"]["Name"];
-      image?: components["schemas"]["Image"];
+      name?: components['schemas']['Name'];
+      image?: components['schemas']['Image'];
       /** Format: date */
       dob?: string;
       /** @description Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender */
       gender?: string;
-      creds?: (components["schemas"]["Credential"])[];
-      tags?: components["schemas"]["Tags"];
+      creds?: components['schemas']['Credential'][];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes a policy. Allows for domain extension. */
     Policy: {
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
-      parent_policy_id?: components["schemas"]["Policy"]["id"];
-      time?: components["schemas"]["Time"];
+      descriptor?: components['schemas']['Descriptor'];
+      parent_policy_id?: components['schemas']['Policy']['id'];
+      time?: components['schemas']['Time'];
     };
     /** @description Describes the price of an item. Allows for domain extension. */
     Price: {
       currency?: string;
-      value?: components["schemas"]["DecimalValue"];
-      estimated_value?: components["schemas"]["DecimalValue"];
-      computed_value?: components["schemas"]["DecimalValue"];
-      listed_value?: components["schemas"]["DecimalValue"];
-      offered_value?: components["schemas"]["DecimalValue"];
-      minimum_value?: components["schemas"]["DecimalValue"];
-      maximum_value?: components["schemas"]["DecimalValue"];
+      value?: components['schemas']['DecimalValue'];
+      estimated_value?: components['schemas']['DecimalValue'];
+      computed_value?: components['schemas']['DecimalValue'];
+      listed_value?: components['schemas']['DecimalValue'];
+      offered_value?: components['schemas']['DecimalValue'];
+      minimum_value?: components['schemas']['DecimalValue'];
+      maximum_value?: components['schemas']['DecimalValue'];
     };
     /** @description Describes a service provider. This can be a restaurant, a hospital, a Store etc */
     Provider: {
       /** @description Id of the provider */
       id?: string;
-      descriptor?: components["schemas"]["Descriptor"];
+      descriptor?: components['schemas']['Descriptor'];
       /** @description Category Id of the provider */
       category_id?: string;
-      rating?: components["schemas"]["Rating"]["value"];
-      time?: components["schemas"]["Time"];
-      categories?: (components["schemas"]["Category"])[];
-      fulfillments?: (components["schemas"]["Fulfillment"])[];
-      payments?: (components["schemas"]["Payment"])[];
-      locations?: (components["schemas"]["Location"] & {
-          rateable?: components["schemas"]["Rateable"];
-        })[];
-      offers?: (components["schemas"]["Offer"])[];
-      items?: (components["schemas"]["Item"])[];
+      rating?: components['schemas']['Rating']['value'];
+      time?: components['schemas']['Time'];
+      categories?: components['schemas']['Category'][];
+      fulfillments?: components['schemas']['Fulfillment'][];
+      payments?: components['schemas']['Payment'][];
+      locations?: (components['schemas']['Location'] & {
+        rateable?: components['schemas']['Rateable'];
+      })[];
+      offers?: components['schemas']['Offer'][];
+      items?: components['schemas']['Item'][];
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Time after which catalog has to be refreshed
        */
       exp?: string;
-      rateable?: components["schemas"]["Rateable"];
-      tags?: components["schemas"]["Tags"];
+      rateable?: components['schemas']['Rateable'];
+      tags?: components['schemas']['Tags'];
     };
     /** @description Describes a quote */
     Quotation: {
-      price?: components["schemas"]["Price"];
-      breakup?: ({
-          title?: string;
-          price?: components["schemas"]["Price"];
-        })[];
-      ttl?: components["schemas"]["Duration"];
+      price?: components['schemas']['Price'];
+      breakup?: {
+        title?: string;
+        price?: components['schemas']['Price'];
+      }[];
+      ttl?: components['schemas']['Duration'];
     };
     /** @description If the entity can be rated or not */
     Rateable: boolean;
@@ -1103,7 +1132,7 @@ export interface components {
       rating_ack?: boolean;
       feedback_ack?: boolean;
       /**
-       * Format: uri 
+       * Format: uri
        * @description URL to a feedback form sent in response to a rating received
        */
       feedback_url?: string;
@@ -1112,37 +1141,37 @@ export interface components {
       /** Format: date-time */
       replace_by?: string;
       replacement_eligible?: boolean;
-      other_terms?: (string)[];
+      other_terms?: string[];
     };
     ReturnTerms: {
       /** Format: date-time */
       return_by?: string;
       refund_eligible?: boolean;
       refund_percentage?: number;
-      other_terms?: (string)[];
+      other_terms?: string[];
     };
     /** @description An object representing a scalar quantity. */
     Scalar: {
       /** @enum {string} */
-      type?: "CONSTANT" | "VARIABLE";
-      value?: components["schemas"]["DecimalValue"];
-      estimated_value?: components["schemas"]["DecimalValue"];
-      computed_value?: components["schemas"]["DecimalValue"];
+      type?: 'CONSTANT' | 'VARIABLE';
+      value?: components['schemas']['DecimalValue'];
+      estimated_value?: components['schemas']['DecimalValue'];
+      computed_value?: components['schemas']['DecimalValue'];
       range?: {
-        min?: components["schemas"]["DecimalValue"];
-        max?: components["schemas"]["DecimalValue"];
+        min?: components['schemas']['DecimalValue'];
+        max?: components['schemas']['DecimalValue'];
       };
       unit?: string;
     };
     /** @description Describes a schedule */
     Schedule: {
-      frequency?: components["schemas"]["Duration"];
-      holidays?: (string)[];
-      times?: (string)[];
+      frequency?: components['schemas']['Duration'];
+      holidays?: string[];
+      times?: string[];
     };
     /** @description Describes a state */
     State: {
-      descriptor?: components["schemas"]["Descriptor"];
+      descriptor?: components['schemas']['Descriptor'];
       /** Format: date-time */
       updated_at?: string;
       /** @description ID of entity which changed the state */
@@ -1153,27 +1182,32 @@ export interface components {
       /** @description Registered domain name of the subscriber. Must have a valid SSL certificate issued by a Certificate Authority of the operating region */
       subscriber_id?: string;
       /** @enum {string} */
-      type?: "bap" | "bpp" | "bg" | "bppr" | "bgr";
+      type?: 'bap' | 'bpp' | 'bg' | 'bppr' | 'bgr';
       /** @description Callback URL of the subscriber. The Registry will call this URL's on_subscribe API to validate the subscriber\'s credentials */
       cb_url?: string;
-      domain?: components["schemas"]["Domain"];
-      city?: components["schemas"]["City"]["code"];
-      country?: components["schemas"]["Country"]["code"];
+      domain?: components['schemas']['Domain'];
+      city?: components['schemas']['City']['code'];
+      country?: components['schemas']['Country']['code'];
       /** @description Signing Public key of the subscriber. <br/><br/>Any subscriber platform (BAP, BPP, BG) who wants to transact on the network must digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the transport layer header. In case of ```HTTP``` it is the ```Authorization``` header. <br><br/>The ```Authorization``` will be used to validate the signature of a BAP or BPP.<br/><br/>Furthermore, if an API call is being proxied or multicast by a Beckn Gateway, the BG must use it\'s signing key to digitally sign the ```requestBody``` using the corresponding private key of this public key and send it in the ```X-Gateway-Authorization``` header. */
       signing_public_key?: string;
       /** @description Encryption public key of the BAP subscriber. Any BPP must encrypt the ```requestBody.message``` value of the ```on_search``` API using this public key. */
       encryption_public_key?: string;
       /** @enum {string} */
-      status?: "INITIATED" | "UNDER_SUBSCRIPTION" | "SUBSCRIBED" | "INVALID_SSL" | "UNSUBSCRIBED";
+      status?:
+        | 'INITIATED'
+        | 'UNDER_SUBSCRIPTION'
+        | 'SUBSCRIBED'
+        | 'INVALID_SSL'
+        | 'UNSUBSCRIBED';
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Timestamp when a subscriber was added to the registry with status = INITIATED
        */
       created?: string;
       /** Format: date-time */
       updated?: string;
       /**
-       * Format: date-time 
+       * Format: date-time
        * @description Expiry timestamp in UTC derived from the ```lease_time``` of the subscriber
        */
       expires?: string;
@@ -1181,9 +1215,9 @@ export interface components {
     /** @description Customer support */
     Support: {
       /** @enum {string} */
-      type?: "order" | "billing" | "fulfillment";
+      type?: 'order' | 'billing' | 'fulfillment';
       ref_id?: string;
-      channels?: components["schemas"]["Tags"];
+      channels?: components['schemas']['Tags'];
     };
     /** @description Describes a tag. This is a simple key-value store which is used to contain extended metadata */
     Tags: {
@@ -1194,7 +1228,7 @@ export interface components {
       label?: string;
       /** Format: date-time */
       timestamp?: string;
-      duration?: components["schemas"]["Duration"];
+      duration?: components['schemas']['Duration'];
       range?: {
         /** Format: date-time */
         start?: string;
@@ -1203,21 +1237,21 @@ export interface components {
       };
       /** @description comma separated values representing days of the week */
       days?: string;
-      schedule?: components["schemas"]["Schedule"];
+      schedule?: components['schemas']['Schedule'];
     };
     /** @description Describes tracking data object during live tracking of an order */
-    TrackingData: components["schemas"]["Location"]["gps"];
+    TrackingData: components['schemas']['Location']['gps'];
     /** @description Describes the tracking info of an object */
     Tracking: {
       /** Format: uri */
       url?: string;
       /** @enum {string} */
-      status?: "active" | "inactive";
+      status?: 'active' | 'inactive';
     };
     UpdateTerms: {
       /** Format: date-time */
       update_by?: string;
-      other_terms?: (string)[];
+      other_terms?: string[];
     };
     /** @description Describes the properties of a vehicle used in a mobility service */
     Vehicle: {
