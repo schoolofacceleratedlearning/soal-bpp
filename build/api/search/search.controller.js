@@ -39,7 +39,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var request_util_1 = require("../../utils/request.util");
 var constants_1 = require("../../constants");
 var axios_1 = __importDefault(require("axios"));
 var auth_util_1 = require("../../utils/auth.util");
@@ -56,7 +55,7 @@ function searchController(req, res) {
                     searchDto.context.action = constants_1.SEARCH_ACTION;
                     searchDto.context.bpp_id = constants_1.BPP_ID;
                     searchDto.context.bpp_uri = constants_1.BPP_URI;
-                    (0, request_util_1.sendAcknowledgement)(res, 'ACK');
+                    // sendAcknowledgement(res, 'ACK');
                     console.log('Making request to ', "".concat(process.env.DELTA_PROVIDER_URI, "/search"));
                     return [4 /*yield*/, axios_1.default.post("".concat(process.env.DELTA_PROVIDER_URI, "/search"), searchDto, {
                             headers: {
