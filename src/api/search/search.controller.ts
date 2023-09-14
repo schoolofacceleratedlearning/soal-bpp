@@ -22,7 +22,7 @@ export default async function searchController(req: Request, res: Response) {
     searchDto.context.bpp_id = BPP_ID;
     searchDto.context.bpp_uri = BPP_URI;
 
-    // sendAcknowledgement(res, 'ACK');
+    sendAcknowledgement(res, 'ACK');
 
     console.log(
       'Making request to ',
