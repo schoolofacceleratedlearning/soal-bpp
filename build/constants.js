@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UNIQUE_KEY_ID = exports.SUBSCRIBER_ID = exports.PRIVATE_KEY = exports.BPP_URI = exports.BPP_ID = exports.ON_SEARCH_ACTION = exports.SEARCH_ACTION = exports.DSEP_DOMAIN = void 0;
-exports.DSEP_DOMAIN = 'dsep:courses';
+exports.DSEP_DOMAIN = 'onest:learning-experiences';
 exports.SEARCH_ACTION = 'search';
 exports.ON_SEARCH_ACTION = 'on_search';
 exports.BPP_ID = process.env.BPP_ID;

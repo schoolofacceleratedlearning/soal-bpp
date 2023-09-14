@@ -1,4 +1,4 @@
-export const DSEP_DOMAIN = 'dsep:courses';
+export const DSEP_DOMAIN = 'onest:learning-experiences';
 export const SEARCH_ACTION = 'search';
 export const ON_SEARCH_ACTION = 'on_search';
 export const BPP_ID = process.env.BPP_ID;
