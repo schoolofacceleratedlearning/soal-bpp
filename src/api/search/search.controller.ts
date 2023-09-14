@@ -22,7 +22,7 @@ export default async function searchController(req: Request, res: Response) {
     searchDto.context.bpp_id = BPP_ID;
     searchDto.context.bpp_uri = BPP_URI;
 
-    // sendAcknowledgement(res, 'ACK');
+    sendAcknowledgement(res, 'ACK');
 
     console.log(
       'Making request to ',
@@ -50,13 +50,13 @@ export default async function searchController(req: Request, res: Response) {
     console.log('search response: ', searchResponse);
     searchResponse.context.action = ON_SEARCH_ACTION;
 
-    const authHeader = await createAuthorizationHeader(searchResponse); // Assuming createAuthorizationHeader is imported or defined somewhere in the file
-    console.log('auth header: ', authHeader);
+    // const authHeader = await createAuthorizationHeader(searchResponse); // Assuming createAuthorizationHeader is imported or defined somewhere in the file
+    // console.log('auth header: ', authHeader);
 
     const requestOptions = {
       headers: {
         'Content-Type': 'application/json',
-        authorization: authHeader,
+        // authorization: authHeader,
       },
       withCredentials: true,
       // ... You might want to add more options here.
