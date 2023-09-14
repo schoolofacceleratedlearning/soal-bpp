@@ -64,18 +64,16 @@ var _sodium = __importStar(require("libsodium-wrappers"));
 var libsodium_wrappers_1 = require("libsodium-wrappers");
 var constants_1 = require("../constants");
 var createAuthorizationHeader = function (message) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, signingString, expires, created, signature, subscriberId, header;
+    var _a, signingString, expires, created, signature, header;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0: return [4 /*yield*/, createSigningString(JSON.stringify(message))];
             case 1:
                 _a = _b.sent(), signingString = _a.signingString, expires = _a.expires, created = _a.created;
-                console.log('key: ', constants_1.PRIVATE_KEY);
                 return [4 /*yield*/, signMessage(signingString, constants_1.PRIVATE_KEY || '')];
             case 2:
                 signature = _b.sent();
-                subscriberId = constants_1.SUBSCRIBER_ID;
-                header = "Signature keyId=\"".concat(subscriberId, "|").concat(constants_1.UNIQUE_ID, "|ed25519\",algorithm=\"ed25519\",created=\"").concat(created, "\",expires=\"").concat(expires, "\",headers=\"(created) (expires) digest\",signature=\"").concat(signature, "\"");
+                header = "Signature keyId=\"".concat(constants_1.SUBSCRIBER_ID, "|").concat(constants_1.UNIQUE_KEY_ID, "|ed25519\",algorithm=\"ed25519\",created=\"").concat(created, "\",expires=\"").concat(expires, "\",headers=\"(created) (expires) digest\",signature=\"").concat(signature, "\"");
                 return [2 /*return*/, header];
         }
     });

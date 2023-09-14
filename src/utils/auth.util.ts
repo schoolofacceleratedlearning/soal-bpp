@@ -1,15 +1,13 @@
 import * as _sodium from 'libsodium-wrappers';
 import { base64_variants } from 'libsodium-wrappers';
-import { PRIVATE_KEY, SUBSCRIBER_ID, UNIQUE_ID } from '../constants';
+import { PRIVATE_KEY, SUBSCRIBER_ID, UNIQUE_KEY_ID } from '../constants';
 
 export const createAuthorizationHeader = async (message: any) => {
   const { signingString, expires, created } = await createSigningString(
     JSON.stringify(message),
   );
-  console.log('key: ', PRIVATE_KEY);
   const signature = await signMessage(signingString, PRIVATE_KEY || '');
-  const subscriberId = SUBSCRIBER_ID;
-  const header = `Signature keyId="${subscriberId}|${UNIQUE_ID}|ed25519",algorithm="ed25519",created="${created}",expires="${expires}",headers="(created) (expires) digest",signature="${signature}"`;
+  const header = `Signature keyId="${SUBSCRIBER_ID}|${UNIQUE_KEY_ID}|ed25519",algorithm="ed25519",created="${created}",expires="${expires}",headers="(created) (expires) digest",signature="${signature}"`;
   return header;
 };
 

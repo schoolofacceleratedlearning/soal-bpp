@@ -5,4 +5,4 @@ export const BPP_ID = process.env.BPP_ID;
 export const BPP_URI = process.env.BPP_URI;
 export const PRIVATE_KEY = process.env.PRIVATE_KEY;
 export const SUBSCRIBER_ID = process.env.SUBSCRIBER_ID;
-export const UNIQUE_ID = process.env.UNIQUE_ID;
+export const UNIQUE_KEY_ID = process.env.UNIQUE_KEY_ID;

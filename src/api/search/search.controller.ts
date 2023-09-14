@@ -15,12 +15,19 @@ export default async function searchController(req: Request, res: Response) {
   try {
     const searchDto: SearchDTO = req.body;
 
+    console.log('Request body from the BPP SEARCH', searchDto);
+
     searchDto.context.domain = DSEP_DOMAIN;
     searchDto.context.action = SEARCH_ACTION;
     searchDto.context.bpp_id = BPP_ID;
     searchDto.context.bpp_uri = BPP_URI;
 
     sendAcknowledgement(res, 'ACK');
+
+    console.log(
+      'Making request to ',
+      `${process.env.DELTA_PROVIDER_URI}/search`,
+    );
 
     const { data: searchResponse } = await axios.post(
       `${process.env.DELTA_PROVIDER_URI}/search` as string,
@@ -48,13 +55,17 @@ export default async function searchController(req: Request, res: Response) {
       // ... You might want to add more options here.
     };
 
-    console.log('calling request forwarder');
+    console.log(
+      'calling request forwarder from bpp',
+      `${searchDto.context.bap_uri}on_search`,
+    );
     return await axios.post(
       `${searchDto.context.bap_uri}on_search`,
       searchResponse,
       requestOptions,
     );
   } catch (err) {
+    console.log('BPP ERRRRRRRRRRR %%%%%%%%', err);
     res.status(500).json({ error: 'Internal server error!' });
   }
 }
