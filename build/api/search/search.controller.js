@@ -44,7 +44,7 @@ var axios_1 = __importDefault(require("axios"));
 var auth_util_1 = require("../../utils/auth.util");
 function searchController(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var searchDto, searchResponse, authHeader, requestOptions, err_1;
+        var searchDto, data, searchResponse, authHeader, requestOptions, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -64,7 +64,13 @@ function searchController(req, res) {
                             },
                         })];
                 case 1:
-                    searchResponse = (_a.sent()).data;
+                    data = (_a.sent()).data;
+                    searchResponse = {
+                        context: searchDto === null || searchDto === void 0 ? void 0 : searchDto.context,
+                        message: {
+                            catalog: data,
+                        },
+                    };
                     console.log('search response: ', searchResponse);
                     searchResponse.context.action = constants_1.ON_SEARCH_ACTION;
                     return [4 /*yield*/, (0, auth_util_1.createAuthorizationHeader)(searchResponse)];

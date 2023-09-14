@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { sendAcknowledgement } from '../../utils/request.util';
-import { SearchDTO } from './search.dto';
+import { OnSearchDTO, SearchDTO } from './search.dto';
 import {
   BPP_ID,
   BPP_URI,
@@ -29,7 +29,7 @@ export default async function searchController(req: Request, res: Response) {
       `${process.env.DELTA_PROVIDER_URI}/search`,
     );
 
-    const { data: searchResponse } = await axios.post(
+    const { data } = await axios.post(
       `${process.env.DELTA_PROVIDER_URI}/search` as string,
       searchDto,
       {
@@ -39,6 +39,13 @@ export default async function searchController(req: Request, res: Response) {
         },
       },
     );
+
+    const searchResponse: OnSearchDTO = {
+      context: searchDto?.context,
+      message: {
+        catalog: data,
+      },
+    };
 
     console.log('search response: ', searchResponse);
     searchResponse.context.action = ON_SEARCH_ACTION;
