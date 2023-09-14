@@ -22,30 +22,37 @@ export default async function searchController(req: Request, res: Response) {
     searchDto.context.bpp_id = BPP_ID;
     searchDto.context.bpp_uri = BPP_URI;
 
+    console.log('searchDto', searchDto);
+
     console.log(
       'Making request to ',
       `${process.env.DELTA_PROVIDER_URI}/search`,
     );
 
-    const { data } = await axios.post(
-      `${process.env.DELTA_PROVIDER_URI}/search` as string,
-      searchDto,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          // You might need additional headers
-        },
-      },
-    );
+    // const { data } = await axios.post(
+    //   `${process.env.DELTA_PROVIDER_URI}/search` as string,
+    //   searchDto,
+    //   {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       // You might need additional headers
+    //     },
+    //   },
+    // );
+
+    const data = {
+      name: 'Product Engineering',
+      duration: '100weeks',
+    };
 
     const searchResponse: OnSearchDTO = {
       context: searchDto?.context,
       message: {
-        catalog: data,
+        catalog: data as any,
       },
     };
 
-    console.log('search response: ', searchResponse);
+    // console.log('search response: ', searchResponse);
     searchResponse.context.action = ON_SEARCH_ACTION;
 
     // const authHeader = await createAuthorizationHeader(searchResponse); // Assuming createAuthorizationHeader is imported or defined somewhere in the file

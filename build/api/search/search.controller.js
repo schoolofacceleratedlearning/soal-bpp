@@ -48,29 +48,26 @@ function searchController(req, res) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    _a.trys.push([0, 2, , 3]);
                     searchDto = req.body;
                     console.log('Request body from the BPP SEARCH', searchDto);
                     searchDto.context.domain = constants_1.DSEP_DOMAIN;
                     searchDto.context.action = constants_1.SEARCH_ACTION;
                     searchDto.context.bpp_id = constants_1.BPP_ID;
                     searchDto.context.bpp_uri = constants_1.BPP_URI;
+                    console.log('searchDto', searchDto);
                     console.log('Making request to ', "".concat(process.env.DELTA_PROVIDER_URI, "/search"));
-                    return [4 /*yield*/, axios_1.default.post("".concat(process.env.DELTA_PROVIDER_URI, "/search"), searchDto, {
-                            headers: {
-                                'Content-Type': 'application/json',
-                                // You might need additional headers
-                            },
-                        })];
-                case 1:
-                    data = (_a.sent()).data;
+                    data = {
+                        name: 'Product Engineering',
+                        duration: '100weeks',
+                    };
                     searchResponse = {
                         context: searchDto === null || searchDto === void 0 ? void 0 : searchDto.context,
                         message: {
                             catalog: data,
                         },
                     };
-                    console.log('search response: ', searchResponse);
+                    // console.log('search response: ', searchResponse);
                     searchResponse.context.action = constants_1.ON_SEARCH_ACTION;
                     requestOptions = {
                         headers: {
@@ -82,16 +79,16 @@ function searchController(req, res) {
                     };
                     console.log('calling request forwarder from bpp', "".concat(searchDto.context.bap_uri, "on_search"));
                     return [4 /*yield*/, axios_1.default.post("".concat(searchDto.context.bap_uri, "on_search"), searchResponse, requestOptions)];
-                case 2:
+                case 1:
                     _a.sent();
                     (0, request_util_1.sendAcknowledgement)(res, 'ACK');
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 3];
+                case 2:
                     err_1 = _a.sent();
                     console.log('BPP ERRRRRRRRRRR %%%%%%%%', err_1);
                     res.status(500).json({ error: 'Internal server error!' });
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
