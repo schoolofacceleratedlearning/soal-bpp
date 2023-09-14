@@ -55,6 +55,6 @@ export default async function searchController(req: Request, res: Response) {
       requestOptions,
     );
   } catch (err) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error!' });
   }
 }
